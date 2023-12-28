@@ -2,6 +2,7 @@ package rs.ac.uns.acs.smpuos.RecipeService.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.ac.uns.acs.smpuos.RecipeService.model.Recipe;
@@ -13,6 +14,8 @@ import java.util.Optional;
 import java.util.Random;
 
 @RestController
+@RequestMapping(path = "/api/recipes")
+@CrossOrigin("*")
 public class RecipeController {
 
     @Autowired
@@ -24,9 +27,17 @@ public class RecipeController {
         return recipeService.findById(id);
     }
 
+    /*
     @RequestMapping(value = "/get-recipes", method = RequestMethod.GET)
     public List<Recipe> getRecipes() {
+
         return recipeService.findAll();
+    } */
+
+    @GetMapping(path = "/get-recipes" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Recipe>> getRecipes(){
+        List<Recipe> recipes = recipeService.findAll();
+        return new ResponseEntity<List<Recipe>>(recipes,HttpStatus.OK);
     }
 
     @PostMapping("/add")

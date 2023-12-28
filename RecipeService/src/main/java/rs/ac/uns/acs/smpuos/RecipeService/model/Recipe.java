@@ -22,6 +22,9 @@ public class Recipe {
     @Field(value = "prep_time")
     private String prep_time;
 
+    @Field(value = "active")
+    private boolean active;
+
     public String getId() {
         return id;
     }
@@ -62,6 +65,13 @@ public class Recipe {
         this.prep_time = prep_time;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
     @Override
     public String toString() {
@@ -71,6 +81,7 @@ public class Recipe {
                 ", description='" + description + '\'' +
                 ", ingredients='" + ingredients + '\'' +
                 ", prep_time='" + prep_time + '\'' +
+                ", active=" + active +
                 '}';
     }
 }
