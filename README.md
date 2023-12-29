@@ -6,3 +6,9 @@
  <br /> Java Spring Boot
  <br /> Angular Framework
  <br /> MongoDB
+
+ # Servisi
+ <br /> EurekaServis
+ <br /> GatewayServis
+ <br /> RecipeService
+ <br /> AuthService
