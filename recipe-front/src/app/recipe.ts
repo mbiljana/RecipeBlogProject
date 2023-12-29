@@ -5,6 +5,7 @@ export interface RecipeInterface {
   ingredients:string;
   prep_time:string;
   active:boolean;
+  picture:string;
 }
 
 export class Recipe implements RecipeInterface{
@@ -14,6 +15,7 @@ export class Recipe implements RecipeInterface{
   ingredients:string;
   prep_time:string;
   active:boolean;
+  picture:string;
 
   constructor(obj: RecipeInterface){
     this.name = obj.name;
@@ -21,6 +23,7 @@ export class Recipe implements RecipeInterface{
     this.ingredients = obj.ingredients;
     this.prep_time = obj.prep_time;
     this.active = obj.active;
+    this.picture = obj.picture;
   }
 }
 

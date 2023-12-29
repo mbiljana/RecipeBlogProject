@@ -55,4 +55,24 @@ public class RecipeController {
         return recipe;
     }
 
+
+
+    @PostMapping(value = "/save",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createRecipe(@RequestBody Recipe createRec) throws Exception {
+        Recipe recipe = new Recipe();
+        recipe.setId(createRec.getId());
+        recipe.setName(createRec.getName());
+        recipe.setDescription(createRec.getDescription());
+        recipe.setIngredients(createRec.getIngredients());
+        recipe.setActive(false);
+        recipe.setPrep_time(createRec.getPrep_time());
+        recipe.setPicture(createRec.getPicture());
+
+        this.recipeService.insert(recipe);
+        return new ResponseEntity<Recipe>(recipe,HttpStatus.OK);
+    }
+
+
 }

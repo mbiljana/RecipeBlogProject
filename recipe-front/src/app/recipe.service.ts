@@ -10,6 +10,8 @@ import { Recipe } from './recipe';
 })
 export class RecipeService {
   private apiUrl = 'http://localhost:8087/api/recipes/get-recipes';
+  private addUrl = 'http://localhost:8087/api/recipes/add';
+  private saveUrl = 'http://localhost:8087/api/recipes/save';
 
   constructor(private http: HttpClient) { }
 
@@ -21,10 +23,11 @@ export class RecipeService {
   
 
   public addRecipe(recipe: Recipe): Observable<Recipe>{
-    
-    return this.http.post<Recipe>('${this.apiUrl}/add', recipe);
-    
+    return this.http.post<Recipe>(`${this.addUrl}`, recipe);
+  }
 
+  saveRecipe(recipe : Recipe):Observable<Recipe>{
+    return this.http.post<Recipe>(this.saveUrl,recipe);
   }
 
   /*

@@ -1,0 +1,105 @@
+<style>
+  .modal-dialog {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .modal-content {
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+
+  h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  label {
+    color: #333;
+    font-weight: bold;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  #file_input {
+    margin-bottom: 10px;
+  }
+
+  #upload_button {
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #upload_button:hover {
+    background-color: #4cae4c;
+  }
+
+  .btn-primary {
+    background-color: #125b1e;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background-color: #286090;
+  }
+
+  .error {
+    color: #d9534f;
+    margin-top: 10px;
+  }
+</style>
+
+<div class="modal-dialog text-center">
+  <div class="modal-content">
+    <h2 class="text-center">Add new recipe to our page! Let the baking begin!</h2>
+    <form id="loginform" name="loginform">
+      <div class="form-group">
+        <label>Recipe name</label>
+        <input id="name" name="name" type="text" class="form-control" [(ngModel)]="newRecipe.name">
+      </div>
+      <div class="form-group">
+        <label>Add description</label>
+        <input id="description" name="description" type="text" class="form-control" [(ngModel)]="newRecipe.description">
+      </div>
+      <div class="form-group">
+        <label>List the ingredients</label>
+        <input id="ingredients" name="ingredients" type="text" class="form-control" [(ngModel)]="newRecipe.ingredients">
+      </div>
+      <div class="form-group">
+        <label>What's the preparation time?</label>
+        <input id="prep_time" name="prep_time" type="text" class="form-control" [(ngModel)]="newRecipe.prep_time">
+      </div>
+      <div class="form-group">
+        <label>Choose a picture:</label>
+        <input id="file_input" type="file" (change)="onFileChanged($event)">
+        <button id="upload_button" class="btn btn-info" (click)="onUpload()">Upload</button>
+        <p class="error">{{ error }}</p>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary" (click)="addRecipe()">Add</button><br>
+      </div>
+    </form>
+  </div>
+</div>
