@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.List;
+
 @Document(collection = "users")
 public class User {
 
@@ -15,6 +17,8 @@ public class User {
 
     @Field(value = "password")
     private String password;
+
+    private List<Recipe> recipeList;
 
     public String getId() {
         return id;

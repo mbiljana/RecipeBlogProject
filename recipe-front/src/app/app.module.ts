@@ -10,6 +10,7 @@ import { AllRecipesComponent } from './all-recipes/all-recipes.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { FormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     NavbarComponent,
     AllRecipesComponent,
     AddRecipeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ViewRecipeComponent
   ],
   imports: [
     BrowserModule,

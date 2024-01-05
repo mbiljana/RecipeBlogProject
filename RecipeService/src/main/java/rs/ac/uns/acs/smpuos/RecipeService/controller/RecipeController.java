@@ -26,6 +26,12 @@ public class RecipeController {
             @RequestParam(name = "id", required = true) String id) {
         return recipeService.findById(id);
     }
+    @RequestMapping(value="get-one/{id}", method = RequestMethod.GET,
+            produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<Optional<Recipe>> findById(@PathVariable String id){
+        Optional<Recipe> recipe =this.recipeService.findById(id);
+        return new ResponseEntity<Optional<Recipe>>(recipe, HttpStatus.OK);
+    }
 
     /*
     @RequestMapping(value = "/get-recipes", method = RequestMethod.GET)

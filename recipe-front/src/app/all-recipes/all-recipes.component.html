@@ -38,16 +38,19 @@
       max-width: 100%;
       height: auto;
       display: block;
-      margin-top: 10px;
+    }
+    .button-container {
+    margin-top: 50px; /* Adjust the margin value as needed */
     }
     .btn-primary {
+      margin-top: 20px;
     background-color: #125b1e;
     color: #fff;
     border: none;
     padding: 10px 15px;
-    margin-top: 25px;
     border-radius: 5px;
     cursor: pointer;
+    display: inline-block;
   }
   </style>
   
@@ -56,11 +59,11 @@
   <div class="recipes-container">
     <div *ngFor="let recipe of recipes" class="recipe">
       <h3>{{ recipe.name }}</h3>
-      <p>{{ recipe.description }}</p>
-      <p>Ingredients: {{ recipe.ingredients }}</p>
       <p>Prep Time: {{ recipe.prep_time }}</p>
       <img src="{{ recipe.picture }}" width="200" height="200">
-      <button type="submit" class="btn btn-primary">See more</button>
+
+
+      <a [routerLink]="['/recipe', recipe.id]" class="btn btn-primary">See more</a>
     </div>
   </div>
   
