@@ -26,6 +26,7 @@ public class RecipeController {
             @RequestParam(name = "id", required = true) String id) {
         return recipeService.findById(id);
     }
+
     @RequestMapping(value="get-one/{id}", method = RequestMethod.GET,
             produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<Optional<Recipe>> findById(@PathVariable String id){
@@ -43,6 +44,12 @@ public class RecipeController {
     @GetMapping(path = "/get-recipes" , produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Recipe>> getRecipes(){
         List<Recipe> recipes = recipeService.findAll();
+        return new ResponseEntity<List<Recipe>>(recipes,HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/get-inactive" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Recipe>> getInactive(){
+        List<Recipe> recipes = recipeService.findInactive();
         return new ResponseEntity<List<Recipe>>(recipes,HttpStatus.OK);
     }
 

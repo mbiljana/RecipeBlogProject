@@ -11,6 +11,7 @@ import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { FormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
+import { ApproveRecipeComponent } from './approve-recipe/approve-recipe.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
     AllRecipesComponent,
     AddRecipeComponent,
     WelcomeComponent,
-    ViewRecipeComponent
+    ViewRecipeComponent,
+    ApproveRecipeComponent
   ],
   imports: [
     BrowserModule,

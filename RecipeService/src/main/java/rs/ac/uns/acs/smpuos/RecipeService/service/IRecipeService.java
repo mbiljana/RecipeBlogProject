@@ -10,6 +10,7 @@ public interface IRecipeService {
     Optional<Recipe> findById(String id);
 
     List<Recipe> findAll();
+    List<Recipe> findInactive();
 
     Recipe insert(Recipe recipe);
 

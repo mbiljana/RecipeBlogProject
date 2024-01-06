@@ -13,24 +13,37 @@ export class RecipeService {
   private addUrl = 'http://localhost:8087/api/recipes/add';
   private saveUrl = 'http://localhost:8087/api/recipes/save';
   private urlRecipe = 'http://localhost:8087/api/recipes/get-one';
+  private urlInactive = 'http://localhost:8087/api/recipes/get-inactive';
+  private urlApprove = 'http://localhost:8087/api/users/approve';
 
   constructor(private http: HttpClient) { }
 
+  //get active recipes
   getRecipes(): Observable<Recipe[]>{
     return this.http.get<Recipe[]>(`${this.apiUrl}`);
   }
 
-  
-  
+  //get inactive recipes (requests)
+  getInactive(): Observable<Recipe[]>{
+    return this.http.get<Recipe[]>(`${this.urlInactive}`);
+  }
 
+  //approve recipes
+  approveRecipe(id:string):Observable<Recipe>{
+    return this.http.get<Recipe>(`${this.urlApprove}/${id}`);
+  }
+  
+  //add new recipe
   public addRecipe(recipe: Recipe): Observable<Recipe>{
     return this.http.post<Recipe>(`${this.addUrl}`, recipe);
   }
 
+  //save new recipe
   saveRecipe(recipe : Recipe):Observable<Recipe>{
     return this.http.post<Recipe>(this.saveUrl,recipe);
   }
 
+  //get one recipe
   getRecipe(id:string):Observable<Recipe>{
     return this.http.get<Recipe>(`${this.urlRecipe}/${id}`);
   }

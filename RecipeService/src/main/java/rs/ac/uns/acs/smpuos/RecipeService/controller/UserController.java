@@ -10,7 +10,9 @@ import rs.ac.uns.acs.smpuos.RecipeService.service.IUserService;
 
 import java.util.Optional;
 
+
 @RestController
+@RequestMapping(path = "/api/users")
 public class UserController {
 
 
