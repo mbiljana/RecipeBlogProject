@@ -61,6 +61,7 @@
       <p>{{ recipe.description }}</p>
       <p>Ingredients: {{ recipe.ingredients }}</p>
       <p>Prep Time: {{ recipe.prep_time }}</p>
+      <p> Category: {{ recipe.categories }}</p>
       <img src="{{ recipe.picture }}" width="200" height="200">
       <!-- Add a check for null or undefined before calling approveRecipe -->
       <button (click)="recipe.id !== undefined ? approveRecipe(recipe.id) : null" class="btn btn-primary">Approve</button>

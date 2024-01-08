@@ -2,6 +2,7 @@ package rs.ac.uns.acs.smpuos.RecipeService.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import rs.ac.uns.acs.smpuos.RecipeService.model.Category;
 import rs.ac.uns.acs.smpuos.RecipeService.model.Recipe;
 import rs.ac.uns.acs.smpuos.RecipeService.repository.RecipeRepository;
 
@@ -46,7 +47,19 @@ public class RecipeService implements IRecipeService{
     }
 
     @Override
+    public List<Recipe> searchByTitle(String title) {
+        List<Recipe> allRecipes = this.recipeRepository.findByName(title);
+        return allRecipes;
+    }
+
+
+
+
+    @Override
     public Recipe insert(Recipe recipe) {
+        if (recipe.getCategories() != null) {
+            recipe.setCategories(new ArrayList<>(recipe.getCategories()));
+        }
         return recipeRepository.save(recipe);
     }
 

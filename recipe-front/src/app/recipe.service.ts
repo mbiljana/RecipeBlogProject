@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient , HttpClientModule, HttpHeaders} from '@angular/common/http';
 import { Recipe } from './recipe';
+import { searchRecipe } from './model/searchRecipe';
 
 
 
@@ -15,6 +16,7 @@ export class RecipeService {
   private urlRecipe = 'http://localhost:8087/api/recipes/get-one';
   private urlInactive = 'http://localhost:8087/api/recipes/get-inactive';
   private urlApprove = 'http://localhost:8087/api/users/approve';
+  private urlRecName = 'http://localhost:8087/api/recipes/search';
 
   constructor(private http: HttpClient) { }
 
@@ -46,6 +48,11 @@ export class RecipeService {
   //get one recipe
   getRecipe(id:string):Observable<Recipe>{
     return this.http.get<Recipe>(`${this.urlRecipe}/${id}`);
+  }
+
+
+  searchRecipe(sDTO : searchRecipe):Observable<Recipe[]>{
+    return this.http.post<Recipe[]>(this.urlRecName, sDTO);
   }
 
   /*

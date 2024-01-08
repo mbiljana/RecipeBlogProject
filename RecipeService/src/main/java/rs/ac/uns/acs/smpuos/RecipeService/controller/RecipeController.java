@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import rs.ac.uns.acs.smpuos.RecipeService.dto.SearchRecipeDTO;
 import rs.ac.uns.acs.smpuos.RecipeService.model.Recipe;
 import rs.ac.uns.acs.smpuos.RecipeService.service.IRecipeService;
 
@@ -59,14 +60,6 @@ public class RecipeController {
         return new ResponseEntity<>(addedRecipe, HttpStatus.CREATED);
     }
 
-    @GetMapping("/lasagne")
-    public String lasagne() {
-        String recipe = "LASAGNE RECIPE:";
-        String prep_time = "30 minutes   ";
-        String description = "Put one lasagne sheet, then bescamel souce, then tomato, then spinach.";
-        recipe = recipe + prep_time + description;
-        return recipe;
-    }
 
 
 
@@ -82,9 +75,18 @@ public class RecipeController {
         recipe.setActive(false);
         recipe.setPrep_time(createRec.getPrep_time());
         recipe.setPicture(createRec.getPicture());
+        recipe.setCategories(createRec.getCategories());
 
         this.recipeService.insert(recipe);
         return new ResponseEntity<Recipe>(recipe,HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value="/search", method = RequestMethod.POST,
+            produces= {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<List<Recipe>> findAllRecipesWithName(@RequestBody SearchRecipeDTO searchRecipeDTO){
+        List<Recipe> recipes=this.recipeService.searchByTitle(searchRecipeDTO.getName());
+        return new ResponseEntity<List<Recipe>>(recipes, HttpStatus.OK);
     }
 
 

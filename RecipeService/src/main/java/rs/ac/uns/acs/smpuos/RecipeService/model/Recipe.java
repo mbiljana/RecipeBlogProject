@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.List;
+
 @Document(collection = "recipes")
 public class Recipe {
 
@@ -27,6 +29,11 @@ public class Recipe {
 
     @Field(value = "picture")
     private String picture;
+
+
+    @Field(value = "categories")
+    private List<Category> categories;
+
 
     public String getId() {
         return id;
@@ -87,6 +94,25 @@ public class Recipe {
     public Recipe() {
     }
 
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    public Recipe(String id, String name, String description, String ingredients, String prep_time, boolean active, String picture, List<Category> categories) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.ingredients = ingredients;
+        this.prep_time = prep_time;
+        this.active = active;
+        this.picture = picture;
+        this.categories = categories;
+    }
+
     public Recipe(String id, String name, String description, String ingredients, String prep_time, boolean active, String picture) {
         this.id = id;
         this.name = name;
@@ -96,6 +122,7 @@ public class Recipe {
         this.active = active;
         this.picture = picture;
     }
+
 
     @Override
     public String toString() {
@@ -107,6 +134,7 @@ public class Recipe {
                 ", prep_time='" + prep_time + '\'' +
                 ", active=" + active +
                 ", picture='" + picture + '\'' +
+                ", categories=" + categories +
                 '}';
     }
 }
