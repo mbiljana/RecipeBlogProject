@@ -55,9 +55,16 @@
 </style>
 
 <div class="search-container">
-    <input [(ngModel)]="name" class="search-input" placeholder="Enter recipe name" />
-    <button (click)="searchRecipe()" class="search-button">Search</button>
-  </div>
+  <input [(ngModel)]="name" class="search-input" placeholder="Enter recipe name" />
+  <button (click)="searchRecipe()" class="search-button">Search</button>
+</div>
+<div class="search-container">
+  <select [(ngModel)]="selectedCategory" class="category-select">
+    <option value="">All Categories</option>
+    <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+  </select>
+  <button (click)="searchRecipeCategory()" class="search-button">Search</button>
+</div>
   
   <div class="recipes-container">
     <div *ngFor="let recipe of recipes" class="recipe">

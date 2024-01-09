@@ -6,9 +6,7 @@ import rs.ac.uns.acs.smpuos.RecipeService.model.Category;
 import rs.ac.uns.acs.smpuos.RecipeService.model.Recipe;
 import rs.ac.uns.acs.smpuos.RecipeService.repository.RecipeRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class RecipeService implements IRecipeService{
@@ -53,15 +51,34 @@ public class RecipeService implements IRecipeService{
     }
 
 
+    @Override
+    public List<Recipe> searchByCategory(Category category) {
+        return recipeRepository.findByCategoriesIn(category);
+    }
 
+
+    /*
+    public List<Recipe> searchRecipes(String name, Category category) {
+        if (name != null && category != null) {
+            return recipeRepository.findByNameAndCategoriesIn(name, category);
+        } else if (name != null) {
+            return recipeRepository.findByName(name);
+        } else if (category != null) {
+            return recipeRepository.findByCategoriesIn(category);
+        } else {
+            return recipeRepository.findAll();
+        }
+    } */
 
     @Override
     public Recipe insert(Recipe recipe) {
         if (recipe.getCategories() != null) {
-            recipe.setCategories(new ArrayList<>(recipe.getCategories()));
+            recipe.setCategories(new ArrayList<>(recipe.getCategories()) {
+            });
         }
         return recipeRepository.save(recipe);
     }
+
 
     @Override
     public void delete(Recipe recipe) {

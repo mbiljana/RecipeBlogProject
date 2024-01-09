@@ -15,9 +15,9 @@ public interface IRecipeService {
 
     List<Recipe> searchByTitle(String title);
 
+    List<Recipe> searchByCategory(Category category);
 
-
-
+   // public List<Recipe> searchRecipes(String name, Category category);
     Recipe insert(Recipe recipe);
 
     void delete(Recipe recipe);
