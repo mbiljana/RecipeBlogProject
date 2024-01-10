@@ -1,12 +1,12 @@
 <style>
-    .recipes-container {
+    .approve-recipe-container {
       margin-left: 40px;
       display: flex;
       flex-wrap: wrap;
       /*justify-content: space-between; */
     }
   
-    h1 {
+    h2 {
         text-align: center;
         margin-bottom: 70px;
     }
@@ -54,17 +54,18 @@
   }
   </style>
   
-
-
-  <div class="recipes-container">
-    <div *ngFor="let recipe of recipes" class="recipe">
+<h2>Inactive recipes to approve</h2>  
+<div class="approve-recipe-container">
+    <div *ngFor="let recipe of inactiveRecipes" class="recipe">
       <h3>{{ recipe.name }}</h3>
+      <p>{{ recipe.description }}</p>
+      <p>Ingredients: {{ recipe.ingredients }}</p>
       <p>Prep Time: {{ recipe.prep_time }}</p>
-      <p>Category:  {{ recipe.categories }}</p>
+      <p> Category: {{ recipe.categories }}</p>
       <img src="{{ recipe.picture }}" width="200" height="200">
-
-
-      <a [routerLink]="['/recipe', recipe.id]" class="btn btn-primary">See more</a>
+      <!-- Add a check for null or undefined before calling approveRecipe -->
+      <button (click)="recipe.id !== undefined ? approveRecipe(recipe.id) : null" class="btn btn-primary">Approve</button>
     </div>
   </div>
+  
   

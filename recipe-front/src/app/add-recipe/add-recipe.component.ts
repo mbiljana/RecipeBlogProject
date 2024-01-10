@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Recipe } from '../recipe';
+import { Recipe, RecipeCategory } from '../recipe';
 
 @Component({
   selector: 'app-add-recipe',
@@ -26,9 +26,11 @@ export class AddRecipeComponent implements OnInit {
     ingredients: '',
     prep_time:'',
     active: false,
-    picture:''
+    picture:'',
+    categories:[]
   });
 
+  categoryOptions: RecipeCategory[] = Object.values(RecipeCategory);
   error: string;
 
 

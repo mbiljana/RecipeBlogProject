@@ -1,0 +1,57 @@
+<div *ngIf="recipe">
+    <style>
+      h2 {
+        font-size: 1.8em;
+        color: #333;
+        margin-bottom: 20px;
+      }
+  
+      p {
+        color: #555;
+        margin-bottom: 15px;
+      }
+  
+      .recipe {
+        text-align: center;
+        border: 2px solid #ddd; /* Border color and width */
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
+      }
+  
+      .image-container {
+        text-align: center;
+        margin-bottom: 100px;
+      }
+  
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 10px auto; /* Center the image horizontally */
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s;
+      }
+  
+      img:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  
+    <div class="recipe">
+      <h2>{{ recipe.name }}</h2>
+      <p>{{ recipe.description }}</p>
+      <p>Ingredients: {{ recipe.ingredients }}</p>
+      <p>Prep Time: {{ recipe.prep_time }}</p>
+      <div class="image-container">
+        <img src="{{ recipe.picture }}" width="400" height="400">
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="!recipe" style="text-align: center;">
+    <p>Loading...</p>
+  </div>
+  
+  

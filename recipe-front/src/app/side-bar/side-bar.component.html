@@ -1,0 +1,10 @@
+<div class="sidebar" [ngClass]="{'open': isOpen}">
+  <button (click)="toggleSidebar()">Toggle Sidebar</button>
+  <h2>Categories</h2>
+  <ul>
+    <li *ngFor="let category of categories" (click)="searchRecipesByCategory(category)">
+      {{ category }}
+    </li>
+  </ul>
+</div>
+

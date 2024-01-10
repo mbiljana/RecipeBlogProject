@@ -10,6 +10,11 @@ import { AllRecipesComponent } from './all-recipes/all-recipes.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { FormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
+import { ApproveRecipeComponent } from './approve-recipe/approve-recipe.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
+import { SearchRecipesComponent } from './search-recipes/search-recipes.component';
+import { SearchRecipesViewComponent } from './search-recipes-view/search-recipes-view.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { WelcomeComponent } from './welcome/welcome.component';
     NavbarComponent,
     AllRecipesComponent,
     AddRecipeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ViewRecipeComponent,
+    ApproveRecipeComponent,
+    SideBarComponent,
+    SearchRecipesComponent,
+    SearchRecipesViewComponent
   ],
   imports: [
     BrowserModule,
