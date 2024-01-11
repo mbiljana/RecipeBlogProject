@@ -12,6 +12,7 @@
     }
 
     .recipe {
+      position: relative;
       width: calc(600px);
       padding: 20px;
       background-color: #fff;
@@ -52,18 +53,28 @@
     cursor: pointer;
     display: inline-block;
   }
+  .add-to-favorites {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dd5aa5; /* Adjust color as needed */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   </style>
   
 
 
   <div class="recipes-container">
     <div *ngFor="let recipe of recipes" class="recipe">
+      <button class="add-to-favorites">&#10084; </button>
       <h3>{{ recipe.name }}</h3>
       <p>Prep Time: {{ recipe.prep_time }}</p>
       <p>Category:  {{ recipe.categories }}</p>
       <img src="{{ recipe.picture }}" width="200" height="200">
-
-
       <a [routerLink]="['/recipe', recipe.id]" class="btn btn-primary">See more</a>
     </div>
   </div>
