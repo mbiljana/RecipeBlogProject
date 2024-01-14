@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe.service';
+import { Role } from '../model/user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,8 +10,19 @@ import { RecipeService } from '../recipe.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public recipeService: RecipeService) { }
 
+  userRole: Role;
+
+  constructor(private authService: UserService,public recipeService: RecipeService) {
+    this.authService.getUserRole().subscribe(
+      (role: Role) => {
+        this.userRole = role;
+      },
+      (error) => {
+        console.error('Error getting user role:', error);
+      }
+    );
+  }
   ngOnInit(): void {
   }
 

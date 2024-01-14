@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient , HttpClientModule, HttpHeaders} from '@angular/common/http';
-import { User } from './model/user';
+import { Role, User } from './model/user';
 import { UserRecipe } from './model/userRecipe';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class UserService {
   private apiSignup = 'http://localhost:8090/api/users/signup';
   private apiSave = 'http://localhost:8087/api/users/save';
   private apiLoggedUser = 'http://localhost:8090/api/users/logged-user';
-
+  private apiUserRole = 'http://localhost:8090/api/users/user-role';
 
 
   constructor(private http: HttpClient) { }
@@ -35,6 +35,10 @@ export class UserService {
 
   getLoggedUser(): Observable<User> {
     return this.http.get<User>(`${this.apiLoggedUser}`);
+  }
+
+  getUserRole(): Observable<Role> {
+    return this.http.get<Role>(`${this.apiUserRole}`);
   }
 
 

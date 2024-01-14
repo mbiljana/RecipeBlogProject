@@ -31,6 +31,8 @@
 </style>
 
 
+<div *ngIf="userRole === 'REGUSER'">
+  
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -41,13 +43,7 @@
         <a class="nav-link" href="add-recipe">Add new recipe</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="approve">Approve recipe</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="search">Search recipes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login-signup">Login & Sign Up</a>
       </li>
       
       <li class="nav-item">
@@ -56,5 +52,53 @@
     </ul>
   </div>
 </nav>
+</div>
+<div *ngIf="userRole != 'REGUSER'">
+  
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="recipes">Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="search">Search recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login-signup">Login & Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Homepage</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+  <div *ngIf="userRole === 'ADMIN'">
+  
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="recipes">Recipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="add-recipe">Add new recipe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="approve">Approve recipe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="search">Search recipes</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="">Homepage</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    </div>
+
 
 

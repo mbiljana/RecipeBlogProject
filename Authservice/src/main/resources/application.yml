@@ -2,7 +2,7 @@ server:
   port: 8090
   servlet:
     session:
-      timeout: 1800 # Set session timeout to 30 minutes (1800 seconds)
+      timeout: 60 # Set session timeout to 30 minutes (1800 seconds)
 
 spring:
   application:
