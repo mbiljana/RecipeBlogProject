@@ -108,4 +108,22 @@ public class RecipeController {
         return new ResponseEntity<>(recipes, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/favourite/{id}", method = {RequestMethod.GET, RequestMethod.POST})
+    public ResponseEntity<Recipe> addToFavourites(@PathVariable String id) {
+        Recipe rec = userService.approveRecipe(id);
+        return new ResponseEntity<>(rec, HttpStatus.CREATED);
+    }
+
+
+    @DeleteMapping("/delete/{recipeId}")
+    public ResponseEntity<?> deleteRecipe(@PathVariable String recipeId) {
+        Recipe recipe = recipeService.findById(recipeId).get();
+        if (recipe == null) {
+            return new ResponseEntity<>("Recipe not found", HttpStatus.NOT_FOUND);
+        }
+        recipeService.delete(recipe);
+        return new ResponseEntity<>("Recipe deleted successfully", HttpStatus.OK);
+    }
 }
+
+

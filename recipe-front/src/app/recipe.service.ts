@@ -59,18 +59,6 @@ export class RecipeService {
   }
 
 
-  /*
-  searchRecipe(sDTO: searchRecipe): Observable<Recipe[]> {
-    const params = new HttpParams()
-      .set('name', sDTO.name || '')
-      .set('category', sDTO.category ? sDTO.category.toString() : '');
-  
-    const options = { params: params };
-  
-    return this.http.get<Recipe[]>(this.urlRecCat, options);
-  }
-  */
-
   searchRecipe(sDTO : searchRecipe):Observable<Recipe[]>{
     return this.http.post<Recipe[]>(this.urlRecName, sDTO);
   } 
@@ -84,6 +72,10 @@ export class RecipeService {
     return this.http.post<Recipe[]>(url, JSON.stringify(body), { headers: headers });
   }
 
+  deleteRecipe(recipeId: string): Observable<any> {
+    const deleteUrl = `${this.urlRecCat}/delete/${recipeId}`;
+    return this.http.delete(deleteUrl);
+  }
   /*
     public updateRecipe(recipe: Recipe): Observable<Recipe>{
     return this.http.put<Recipe>('${this.apiUrl}/update', recipe);

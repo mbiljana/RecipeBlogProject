@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-approve-recipe',
@@ -11,7 +12,7 @@ export class ApproveRecipeComponent implements OnInit {
 
   inactiveRecipes: Recipe[] = [];
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadInactiveRecipes();
@@ -33,8 +34,19 @@ export class ApproveRecipeComponent implements OnInit {
         this.inactiveRecipes = this.inactiveRecipes.filter(recipe => recipe.id !== recipeId);
       },
       error => {
-        // Handle error
         console.error(error);
+      }
+    );
+  }
+  onDeleteRecipe(recipeId: string): void {
+    this.recipeService.deleteRecipe(recipeId).subscribe(
+      () => {
+        console.log('Recipe deleted successfully');
+        this.router.navigate(['/approve']);
+      },
+      (error) => {
+        console.error('Error deleting recipe:', error);
+        this.router.navigate(['/approve']);
       }
     );
   }

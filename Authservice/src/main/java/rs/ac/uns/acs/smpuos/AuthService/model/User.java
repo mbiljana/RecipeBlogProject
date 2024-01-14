@@ -33,6 +33,20 @@ public class User {
     @Field(value = "phone")
     private String phone;
 
+    public User() {
+    }
+
+
+    public User(String username, String password, Role role, String name, String surname, String email, String phone) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public String getName() {
         return name;
     }
