@@ -3,7 +3,7 @@ import { RecipeService } from '../recipe.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Recipe, RecipeCategory } from '../recipe';
-import { User } from '../model/user';
+import { Role, User } from '../model/user';
 import { UserRecipe } from '../model/userRecipe';
 import { UserService } from '../user.service';
 
@@ -24,7 +24,8 @@ export class AddRecipeComponent implements OnInit {
 
   user: UserRecipe = new UserRecipe({
     username:'',
-    password: ''
+    password: '',
+    role: Role.REGUSER
   });
 
   newRecipe: Recipe = new Recipe({
@@ -63,11 +64,13 @@ export class AddRecipeComponent implements OnInit {
         this.user.id = loggedInUser.id;
         this.user.username = loggedInUser.username;
         this.user.password = loggedInUser.password;
+        this.user.role = loggedInUser.role;
         console.log(this.user.username);
+        console.log(this.user.role);
         this.recipeService.saveRecipe(this.newRecipe, this.user).subscribe(
           (res) => {
             this.newRecipe = res;
-            //this.router.navigate(['']); // Navigate after successfully saving the recipe
+            this.router.navigate(['recipes']); 
           },
           (error) => {
             console.error('Error saving recipe:', error);

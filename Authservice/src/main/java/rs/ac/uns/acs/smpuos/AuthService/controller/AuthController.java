@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.util.UriComponentsBuilder;
+import rs.ac.uns.acs.smpuos.AuthService.model.Role;
 import rs.ac.uns.acs.smpuos.AuthService.model.User;
 import rs.ac.uns.acs.smpuos.AuthService.service.IUserService;
 import rs.ac.uns.acs.smpuos.AuthService.service.UserService;
@@ -53,6 +54,13 @@ public class AuthController {
     public ResponseEntity<User> getLoggedUser(HttpSession session) {
         System.out.println("Ovo je ime s druge strane mozda radi" + newUser.getUsername());
         return ResponseEntity.ok(newUser);
+    }
+
+    @GetMapping("/user-role")
+    public ResponseEntity<Role> getUserRole(HttpSession session) {
+        System.out.println("Ovo je uloga " + newUser.getRole());
+        Role role = newUser.getRole();
+        return ResponseEntity.ok(role);
     }
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
+import { Role, User } from '../model/user';
 
 @Component({
   selector: 'app-main-page',
@@ -7,7 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
+
+  userRole: Role;
+
+  constructor(private authService: UserService) {
+    this.authService.getUserRole().subscribe(
+      (role: Role) => {
+        this.userRole = role;
+      },
+      (error) => {
+        console.error('Error getting user role:', error);
+      }
+    );
+  }
 
   ngOnInit(): void {
   }

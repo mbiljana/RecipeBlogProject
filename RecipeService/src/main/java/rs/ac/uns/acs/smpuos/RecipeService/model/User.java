@@ -19,6 +19,28 @@ public class User {
     @Field(value = "password")
     private String password;
 
+    @Field(value = "role")
+    private Role role;
+
+    @Field(value = "favourites")
+    private List<Recipe> favourites;
+
+    public List<Recipe> getFavourites() {
+        return favourites;
+    }
+
+    public void setFavourites(List<Recipe> favourites) {
+        this.favourites = favourites;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     private List<Recipe> recipeList;
 
     public String getId() {
