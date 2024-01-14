@@ -1,15 +1,14 @@
-package rs.ac.uns.acs.smpuos.RecipeService.model;
+package rs.ac.uns.acs.smpuos.AuthService.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import javax.annotation.processing.Generated;
+import java.lang.invoke.VarHandle;
 import java.util.List;
 
 @Document(collection = "users")
 public class User {
-
     @Id
     private String id;
 
@@ -19,7 +18,60 @@ public class User {
     @Field(value = "password")
     private String password;
 
-    private List<Recipe> recipeList;
+    @Field(value = "role")
+    private Role role;
+
+    @Field(value = "name")
+    private String name;
+
+    @Field(value = "surname")
+    private String surname;
+
+    @Field(value = "email")
+    private String email;
+
+    @Field(value = "phone")
+    private String phone;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public String getId() {
         return id;
@@ -42,14 +94,6 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public User() {
-    }
-
-    public User(String username, String password) {
-        this.username = username;
         this.password = password;
     }
 

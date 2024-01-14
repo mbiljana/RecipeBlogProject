@@ -15,6 +15,7 @@ import { ApproveRecipeComponent } from './approve-recipe/approve-recipe.componen
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SearchRecipesComponent } from './search-recipes/search-recipes.component';
 import { SearchRecipesViewComponent } from './search-recipes-view/search-recipes-view.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SearchRecipesViewComponent } from './search-recipes-view/search-recipes
     ApproveRecipeComponent,
     SideBarComponent,
     SearchRecipesComponent,
-    SearchRecipesViewComponent
+    SearchRecipesViewComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

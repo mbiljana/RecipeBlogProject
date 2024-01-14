@@ -6,6 +6,7 @@ import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 import { ApproveRecipeComponent } from './approve-recipe/approve-recipe.component';
 import { SearchRecipesComponent } from './search-recipes/search-recipes.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'add-recipe', component: AddRecipeComponent},
   { path: 'recipe/:id', component: ViewRecipeComponent},
   { path: 'approve', component: ApproveRecipeComponent},
-  { path: 'search', component: SearchRecipesComponent}
+  { path: 'search', component: SearchRecipesComponent},
+  { path: 'login-signup', component: SignUpComponent}
 ];
 
 @NgModule({

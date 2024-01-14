@@ -52,6 +52,17 @@
     cursor: pointer;
     display: inline-block;
   }
+  .btn-danger{
+    margin-left: 10px;
+    margin-top: 20px;
+    background-color: #a30a0a;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+  }
   </style>
   
 <h2>Inactive recipes to approve</h2>  
@@ -65,6 +76,7 @@
       <img src="{{ recipe.picture }}" width="200" height="200">
       <!-- Add a check for null or undefined before calling approveRecipe -->
       <button (click)="recipe.id !== undefined ? approveRecipe(recipe.id) : null" class="btn btn-primary">Approve</button>
+      <button (click)="recipe.id !== undefined ? approveRecipe(recipe.id) : null" class="btn btn-danger">Remove</button>
     </div>
   </div>
   

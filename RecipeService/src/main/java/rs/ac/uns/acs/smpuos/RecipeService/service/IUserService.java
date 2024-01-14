@@ -10,4 +10,7 @@ public interface IUserService {
     Optional<User> findById(String id);
 
     Recipe approveRecipe(String id);
+
+    void save(User user);
+
 }

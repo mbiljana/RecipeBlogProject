@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rs.ac.uns.acs.smpuos.RecipeService.model.Category;
 import rs.ac.uns.acs.smpuos.RecipeService.model.Recipe;
+import rs.ac.uns.acs.smpuos.RecipeService.model.User;
 import rs.ac.uns.acs.smpuos.RecipeService.repository.RecipeRepository;
+import rs.ac.uns.acs.smpuos.RecipeService.repository.UserRepository;
 
 import java.util.*;
 
@@ -13,6 +15,12 @@ public class RecipeService implements IRecipeService{
 
     @Autowired
     RecipeRepository recipeRepository;
+
+    @Autowired
+    IUserService userService;
+
+    @Autowired
+    UserRepository userRepository;
 
 
     @Override
@@ -76,6 +84,7 @@ public class RecipeService implements IRecipeService{
             recipe.setCategories(new ArrayList<>(recipe.getCategories()) {
             });
         }
+
         return recipeRepository.save(recipe);
     }
 

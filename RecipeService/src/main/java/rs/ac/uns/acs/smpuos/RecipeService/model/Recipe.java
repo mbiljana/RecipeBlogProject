@@ -32,6 +32,8 @@ public class Recipe {
     private String picture;
 
 
+    @Field("user")
+    private User user;
     @Field(value = "categories")
     private List<Category> categories;
 
@@ -95,6 +97,15 @@ public class Recipe {
     public Recipe() {
     }
 
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public List<Category> getCategories() {
         return categories;
     }
@@ -124,6 +135,28 @@ public class Recipe {
         this.picture = picture;
     }
 
+    public Recipe(String id, String name, String description, String ingredients, String prep_time, boolean active, String picture, User user, List<Category> categories) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.ingredients = ingredients;
+        this.prep_time = prep_time;
+        this.active = active;
+        this.picture = picture;
+        this.user = user;
+        this.categories = categories;
+    }
+
+    public Recipe(String name, String description, String ingredients, String prep_time, boolean active, String picture, User user, List<Category> categories) {
+        this.name = name;
+        this.description = description;
+        this.ingredients = ingredients;
+        this.prep_time = prep_time;
+        this.active = active;
+        this.picture = picture;
+        this.user = user;
+        this.categories = categories;
+    }
 
     @Override
     public String toString() {
@@ -135,6 +168,7 @@ public class Recipe {
                 ", prep_time='" + prep_time + '\'' +
                 ", active=" + active +
                 ", picture='" + picture + '\'' +
+                ", user=" + user +
                 ", categories=" + categories +
                 '}';
     }

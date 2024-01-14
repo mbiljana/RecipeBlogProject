@@ -5,11 +5,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import rs.ac.uns.acs.smpuos.RecipeService.dto.SaveRecipeRequest;
 import rs.ac.uns.acs.smpuos.RecipeService.dto.SearchRecipeDTO;
 import rs.ac.uns.acs.smpuos.RecipeService.model.Category;
 import rs.ac.uns.acs.smpuos.RecipeService.model.Recipe;
+import rs.ac.uns.acs.smpuos.RecipeService.model.User;
 import rs.ac.uns.acs.smpuos.RecipeService.service.IRecipeService;
+import rs.ac.uns.acs.smpuos.RecipeService.service.IUserService;
 
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 @RestController
@@ -19,6 +23,9 @@ public class RecipeController {
 
     @Autowired
     IRecipeService recipeService;
+
+    @Autowired
+    IUserService userService;
 
     @RequestMapping(value = "/get-recipe", method = RequestMethod.GET)
     public Optional<Recipe> getRecipe(
@@ -52,19 +59,34 @@ public class RecipeController {
         return new ResponseEntity<List<Recipe>>(recipes,HttpStatus.OK);
     }
 
+    /*
     @PostMapping("/add")
     public ResponseEntity<Recipe> addRecipe(@RequestBody Recipe recipe) {
         Recipe addedRecipe = recipeService.insert(recipe);
         return new ResponseEntity<>(addedRecipe, HttpStatus.CREATED);
     }
 
+     */
 
 
+    @GetMapping("/logged-user")
+    public ResponseEntity<User> getLoggedUser(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        return ResponseEntity.ok(user);
+    }
 
-    @PostMapping(value = "/save",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> createRecipe(@RequestBody Recipe createRec) throws Exception {
+    @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createRecipe(@RequestBody SaveRecipeRequest saveRecipeRequest) {
+        User loggedInUser = saveRecipeRequest.getUser();
+        Recipe createRec = saveRecipeRequest.getRecipe();
+
+
+        User user = new User();
+        user.setUsername(loggedInUser.getUsername());
+        user.setPassword(loggedInUser.getPassword());
+        user.setId(loggedInUser.getId());
+        System.out.println("Logged-in User: " + user);
+
         Recipe recipe = new Recipe();
         recipe.setId(createRec.getId());
         recipe.setName(createRec.getName());
@@ -74,11 +96,36 @@ public class RecipeController {
         recipe.setPrep_time(createRec.getPrep_time());
         recipe.setPicture(createRec.getPicture());
         recipe.setCategories(createRec.getCategories());
+        recipe.setUser(user);
 
         this.recipeService.insert(recipe);
-        return new ResponseEntity<Recipe>(recipe,HttpStatus.OK);
+        return new ResponseEntity<Recipe>(recipe, HttpStatus.OK);
     }
 
+    /*
+    @PostMapping(value = "/save",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createRecipe(@RequestBody Recipe createRec, User loggedInUser){
+        User user = new User();
+        user.setUsername(loggedInUser.getUsername());
+        user.setPassword(loggedInUser.getPassword());
+        user.setId(loggedInUser.getId());
+        System.out.println("Logged-in User: " + user);
+        Recipe recipe = new Recipe();
+        recipe.setId(createRec.getId());
+        recipe.setName(createRec.getName());
+        recipe.setDescription(createRec.getDescription());
+        recipe.setIngredients(createRec.getIngredients());
+        recipe.setActive(false);
+        recipe.setPrep_time(createRec.getPrep_time());
+        recipe.setPicture(createRec.getPicture());
+        recipe.setCategories(createRec.getCategories());
+        recipe.setUser(user);
+        this.recipeService.insert(recipe,loggedInUser);
+        return new ResponseEntity<Recipe>(recipe,HttpStatus.OK);
+    }
+*/
     /*
     @GetMapping("/search-by-category")
     public ResponseEntity<List<Recipe>> searchByCategory(
