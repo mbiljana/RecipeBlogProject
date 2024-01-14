@@ -1,5 +1,8 @@
 server:
   port: 8090
+  servlet:
+    session:
+      timeout: 1800 # Set session timeout to 30 minutes (1800 seconds)
 
 spring:
   application:
@@ -8,7 +11,7 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: RecipeDB
+      database: UserDB
     
 eureka:
   client:
@@ -18,4 +21,6 @@ eureka:
         enabled: true
   instance:
     prefer-ip-address: true
+
+
 

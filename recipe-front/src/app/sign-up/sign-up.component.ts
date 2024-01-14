@@ -12,6 +12,11 @@ export class SignUpComponent {
   showLogin = true;
   showSignUp = false;
 
+  saveCredentials = {
+    username: '',
+    password: ''
+  };
+
   loginCredentials = {
     username: '',
     password: ''
@@ -38,6 +43,10 @@ export class SignUpComponent {
       (error) => {
         console.error('Sign-up error:', error);
       }
+    );
+      this.saveCredentials.username = this.signUpCredentials.username;
+      this.saveCredentials.password = this.signUpCredentials.password;
+    this.userService.save(this.saveCredentials).subscribe(
     );
   }
 

@@ -2,6 +2,7 @@ package rs.ac.uns.acs.smpuos.RecipeService.service;
 
 import rs.ac.uns.acs.smpuos.RecipeService.model.Category;
 import rs.ac.uns.acs.smpuos.RecipeService.model.Recipe;
+import rs.ac.uns.acs.smpuos.RecipeService.model.User;
 
 import java.util.List;
 import java.util.Optional;

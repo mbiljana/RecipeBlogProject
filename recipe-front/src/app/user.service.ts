@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient , HttpClientModule, HttpHeaders} from '@angular/common/http';
 import { User } from './model/user';
+import { UserRecipe } from './model/userRecipe';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class UserService {
 
   private apiLogin = 'http://localhost:8090/api/users/login';
   private apiSignup = 'http://localhost:8090/api/users/signup';
-
+  private apiSave = 'http://localhost:8087/api/users/save';
+  private apiLoggedUser = 'http://localhost:8090/api/users/logged-user';
 
 
 
@@ -21,9 +23,18 @@ export class UserService {
     return this.http.post<User>(signUpUrl, user);
   }
 
-  login(credentials: any): Observable<User> {
+  save(user: any): Observable<User> {
+    const saveUrl = `${this.apiSave}`;
+    return this.http.post<User>(saveUrl, user);
+  }
+
+  login(credentials: any): Observable<UserRecipe> {
     const loginUrl = `${this.apiLogin}`;
-    return this.http.post<User>(loginUrl, credentials);
+    return this.http.post<UserRecipe>(loginUrl, credentials);
+  }
+
+  getLoggedUser(): Observable<User> {
+    return this.http.get<User>(`${this.apiLoggedUser}`);
   }
 
 

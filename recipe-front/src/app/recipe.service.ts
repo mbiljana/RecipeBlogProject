@@ -4,6 +4,7 @@ import { HttpClient , HttpClientModule, HttpHeaders} from '@angular/common/http'
 import { Recipe, RecipeCategory } from './recipe';
 import { searchRecipe } from './model/searchRecipe';
 import { HttpParams } from '@angular/common/http';
+import { UserRecipe } from './model/userRecipe';
 
 
 
@@ -43,14 +44,20 @@ export class RecipeService {
   }
 
   //save new recipe
-  saveRecipe(recipe : Recipe):Observable<Recipe>{
-    return this.http.post<Recipe>(this.saveUrl,recipe);
+  saveRecipe(recipe: Recipe, user: UserRecipe): Observable<Recipe> {
+    const payload = {
+      recipe: { ...recipe },
+      user: { ...user }
+    };
+    console.log(payload);
+    return this.http.post<Recipe>(this.saveUrl, payload);
   }
 
   //get one recipe
   getRecipe(id:string):Observable<Recipe>{
     return this.http.get<Recipe>(`${this.urlRecipe}/${id}`);
   }
+
 
   /*
   searchRecipe(sDTO: searchRecipe): Observable<Recipe[]> {

@@ -3,6 +3,9 @@ import { RecipeService } from '../recipe.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Recipe, RecipeCategory } from '../recipe';
+import { User } from '../model/user';
+import { UserRecipe } from '../model/userRecipe';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-add-recipe',
@@ -13,11 +16,16 @@ export class AddRecipeComponent implements OnInit {
 
   selectedFile: File;
 
-  constructor(private recipeService: RecipeService, private router: Router, private http: HttpClient) { 
+  constructor(private recipeService: RecipeService, private router: Router, private http: HttpClient,private userService: UserService) { 
   }
 
   ngOnInit(): void {
   }
+
+  user: UserRecipe = new UserRecipe({
+    username:'',
+    password: ''
+  });
 
   newRecipe: Recipe = new Recipe({
     id: '0',
@@ -27,6 +35,7 @@ export class AddRecipeComponent implements OnInit {
     prep_time:'',
     active: false,
     picture:'',
+    user: this.user,
     categories:[]
   });
 
@@ -34,6 +43,7 @@ export class AddRecipeComponent implements OnInit {
   error: string;
 
 
+  /*
   addRecipe(){
     var picture_path = "/assets/" + this.selectedFile.name;
     this.newRecipe.picture = picture_path;
@@ -41,6 +51,33 @@ export class AddRecipeComponent implements OnInit {
       this.newRecipe =res;
     })
     this.router.navigate(['']);
+  }
+  */
+
+  addRecipe() {
+    var picture_path = "/assets/" + this.selectedFile.name;
+    this.newRecipe.picture = picture_path;
+  
+    this.userService.getLoggedUser().subscribe(
+      (loggedInUser) => {
+        this.user.id = loggedInUser.id;
+        this.user.username = loggedInUser.username;
+        this.user.password = loggedInUser.password;
+        console.log(this.user.username);
+        this.recipeService.saveRecipe(this.newRecipe, this.user).subscribe(
+          (res) => {
+            this.newRecipe = res;
+            //this.router.navigate(['']); // Navigate after successfully saving the recipe
+          },
+          (error) => {
+            console.error('Error saving recipe:', error);
+          }
+        );
+      },
+      (error) => {
+        console.error('Error getting logged-in user:', error);
+      }
+    );
   }
 
   onUpload() {
@@ -59,5 +96,7 @@ export class AddRecipeComponent implements OnInit {
   public onFileChanged(event: any) {
     this.selectedFile = event.target.files[0];
   }
+
+  
 
 }
