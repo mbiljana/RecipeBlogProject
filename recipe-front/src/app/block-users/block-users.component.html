@@ -1,0 +1,20 @@
+<div class="user-list">
+    <h2>User List</h2>
+    <ul class="user-list-items">
+      <li *ngFor="let user of users" class="user-item">
+        <div class="user-info">
+          <img *ngIf="user.picture" [src]="user.picture" alt="{{ user.username }} Profile Picture" class="user-picture" height="100" width="100">
+          <div class="user-details">
+            <span class="user-name user-bold-italic">{{ user.name }}</span>
+            <span class="user-surname user-bold-italic">{{ user.surname }}</span>
+            <span class="user-username">{{ user.username }}</span>
+            <span class="user-username">{{ user.email }}</span>
+          </div>
+        </div>
+        <button *ngIf="user.id" (click)="blockUser(user.id)" class="block-button">Block</button>
+      </li>
+    </ul>
+  </div>
+  
+  
+  

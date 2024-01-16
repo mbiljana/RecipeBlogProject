@@ -18,6 +18,8 @@ export class ApproveRecipeComponent implements OnInit {
     this.loadInactiveRecipes();
   }
 
+  
+
   loadInactiveRecipes(): void {
     this.recipeService.getInactive().subscribe(
       res => this.inactiveRecipes = res,

@@ -14,7 +14,9 @@ export class UserService {
   private apiSave = 'http://localhost:8087/api/users/save';
   private apiLoggedUser = 'http://localhost:8090/api/users/logged-user';
   private apiUserRole = 'http://localhost:8090/api/users/user-role';
-
+  private apiSignOut = 'http://localhost:8090/api/users/signout';
+  private apiUsers = 'http://localhost:8090/api/users/get-users';
+  private apiUrl = 'http://localhost:8090/api/users';
 
   constructor(private http: HttpClient) { }
 
@@ -41,5 +43,17 @@ export class UserService {
     return this.http.get<Role>(`${this.apiUserRole}`);
   }
 
+  SignOut(): Observable<User> {
+    return this.http.get<User>(`${this.apiSignOut}`);
+  }
 
+
+  getUsers(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.apiUsers}`);
+  }
+
+  deleteUser(userId: string): Observable<any> {
+    const deleteUrl = `${this.apiUrl}/delete/${userId}`;
+    return this.http.delete(deleteUrl);
+  }
 }

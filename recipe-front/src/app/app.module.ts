@@ -16,6 +16,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { SearchRecipesComponent } from './search-recipes/search-recipes.component';
 import { SearchRecipesViewComponent } from './search-recipes-view/search-recipes-view.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { BlockUsersComponent } from './block-users/block-users.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SideBarComponent,
     SearchRecipesComponent,
     SearchRecipesViewComponent,
-    SignUpComponent
+    SignUpComponent,
+    BlockUsersComponent
   ],
   imports: [
     BrowserModule,

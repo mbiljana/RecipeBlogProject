@@ -32,15 +32,32 @@ public class UserService implements IUserService{
 
     @Override
     public User save(User userRequest) {
-        User user = new User();
+        User existingUser = this.userRepository.findByUsername(userRequest.getUsername());
+        if (existingUser != null) {
+            // If user exists, update the values
+            existingUser.setName(userRequest.getName());
+            existingUser.setEmail(userRequest.getEmail());
+            existingUser.setRole(userRequest.getRole());
+            existingUser.setPassword(userRequest.getPassword());
+            existingUser.setSurname(userRequest.getSurname());
+            existingUser.setPhone(userRequest.getPhone());
+            return this.userRepository.save(existingUser);
+        } else {
+            // If user doesn't exist, create a new one
+            User newUser = new User();
+            newUser.setName(userRequest.getName());
+            newUser.setEmail(userRequest.getEmail());
+            newUser.setRole(userRequest.getRole());
+            newUser.setPassword(userRequest.getPassword());
+            newUser.setSurname(userRequest.getSurname());
+            newUser.setUsername(userRequest.getUsername());
+            newUser.setPhone(userRequest.getPhone());
+            return this.userRepository.save(newUser);
+        }
+    }
 
-        user.setName(userRequest.getName());
-        user.setEmail(userRequest.getEmail());
-        user.setRole(userRequest.getRole());
-        user.setPassword(userRequest.getPassword());
-        user.setSurname(userRequest.getSurname());
-        user.setUsername(userRequest.getUsername());
-        user.setPhone(userRequest.getPhone());
-        return this.userRepository.save(user);
+    @Override
+    public void delete(User user) {
+        this.userRepository.delete(user);
     }
 }

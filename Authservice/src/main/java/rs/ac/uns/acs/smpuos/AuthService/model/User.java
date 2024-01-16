@@ -33,9 +33,30 @@ public class User {
     @Field(value = "phone")
     private String phone;
 
+    @Field(value = "picture")
+    private String picture;
+
     public User() {
     }
 
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public User(String username, String password, Role role, String name, String surname, String email, String phone, String picture) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.picture = picture;
+    }
 
     public User(String username, String password, Role role, String name, String surname, String email, String phone) {
         this.username = username;

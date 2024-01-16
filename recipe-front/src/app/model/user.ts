@@ -7,6 +7,7 @@ export interface UserInterface{
     surname:string;
     email:string;
     phone:string;
+    picture?:string;
 }
 export class User implements UserInterface{
     id?:string;
@@ -17,6 +18,7 @@ export class User implements UserInterface{
     surname:string;
     email:string;
     phone:string;
+    picture?:string;
 
     constructor(obj: UserInterface){
         this.username = obj.username;
