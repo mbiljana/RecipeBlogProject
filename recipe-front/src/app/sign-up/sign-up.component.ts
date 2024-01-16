@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Role, User } from '../model/user';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { waitForAsync } from '@angular/core/testing';
 
 @Component({
   selector: 'app-sign-up',
@@ -61,6 +62,8 @@ export class SignUpComponent {
     );
   }
 
+  
+
   showLoginForm() {
     this.showLogin = true;
     this.showSignUp = false;
@@ -69,6 +72,10 @@ export class SignUpComponent {
   showSignUpForm() {
     this.showLogin = false;
     this.showSignUp = true;
+  }
+
+  reloadPage(){
+    window.location.reload();
   }
 
 }

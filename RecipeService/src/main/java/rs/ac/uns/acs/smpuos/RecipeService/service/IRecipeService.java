@@ -23,4 +23,6 @@ public interface IRecipeService {
 
     void delete(Recipe recipe);
 
+    Recipe addToFavourite(String id);
+
 }

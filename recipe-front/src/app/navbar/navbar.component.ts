@@ -26,4 +26,19 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  signout() {
+    this.authService.SignOut().subscribe(
+      (user) => {
+        this.reloadPage();
+      },
+      (error) => {
+        console.error('Signout error:', error);
+      }
+    );
+  }
+
+  reloadPage(){
+    window.location.reload();
+  }
+
 }

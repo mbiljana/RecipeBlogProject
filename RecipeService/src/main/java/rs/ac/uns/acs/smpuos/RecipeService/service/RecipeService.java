@@ -91,6 +91,12 @@ public class RecipeService implements IRecipeService{
 
     @Override
     public void delete(Recipe recipe) {
-        recipeRepository.delete(recipe);
+        Recipe newRecipe = (Recipe) recipe;
+        recipeRepository.delete(newRecipe);
+    }
+
+    @Override
+    public Recipe addToFavourite(String id) {
+        return null;
     }
 }

@@ -1,7 +1,7 @@
 <style>
   .navbar {
-    background-color: #333; /* Set your desired background color */
-    height: 80px; /* Adjust the height as needed */
+    background-color: #333; 
+    height: 80px; 
   }
 
   .navbar-nav {
@@ -11,7 +11,7 @@
 
   .nav-item {
     margin-top: 40px;
-    margin-right: 50px; /* Adjust the spacing between links */
+    margin-right: 50px; 
     align-items: baseline;
   }
 
@@ -19,9 +19,9 @@
     color: #fff; /* Set your desired text color */
     text-decoration: none; /* Remove the default underline for links */
     padding: 10px 15px; /* Adjust the padding to create a button-like appearance */
-    border: 1px solid #fff; /* Add a border for a button-like look */
-    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+    border: 1px solid #fff;
+    border-radius: 5px; 
+    transition: background-color 0.3s, color 0.3s; 
   }
 
   .nav-link:hover {
@@ -49,11 +49,14 @@
       <li class="nav-item">
         <a class="nav-link" href="">Homepage</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="" (click) = "signout()">&#10148; Sign Out </a>
+      </li>
     </ul>
   </div>
 </nav>
 </div>
-<div *ngIf="userRole != 'REGUSER'">
+<div *ngIf="userRole != 'REGUSER' && userRole != 'ADMIN'">
   
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -83,9 +86,6 @@
             <a class="nav-link" href="recipes">Recipes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="add-recipe">Add new recipe</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="approve">Approve recipe</a>
           </li>
           <li class="nav-item">
@@ -94,6 +94,12 @@
           
           <li class="nav-item">
             <a class="nav-link" href="">Homepage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="block-users">Block users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" (click) = "signout()">&#10148; Sign Out </a>
           </li>
         </ul>
       </div>

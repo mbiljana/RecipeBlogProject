@@ -1,0 +1,59 @@
+.user-list {
+    margin: 20px;
+  }
+  
+  .user-list h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .user-list-items {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .user-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .user-bold-italic {
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-picture {
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-name,
+  .user-surname,
+  .user-username {
+    margin-bottom: 5px;
+  }
+  
+  .block-button {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
