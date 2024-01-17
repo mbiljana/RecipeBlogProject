@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @SpringBootApplication
 @EnableEurekaClient
 @EnableMongoRepositories
-public class AuthServiceApplication {
+public class  AuthServiceApplication {
 
 	@Autowired
 	InitialData initialData;

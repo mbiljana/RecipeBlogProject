@@ -32,5 +32,6 @@ public class InitialData {
         this.userRepository.save(u3);
         this.userRepository.save(u4);
 
+
     }
 }
