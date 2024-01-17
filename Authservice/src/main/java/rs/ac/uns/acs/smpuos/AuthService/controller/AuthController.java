@@ -5,16 +5,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.ResourceAccessException;
-import org.springframework.web.util.UriComponentsBuilder;
 import rs.ac.uns.acs.smpuos.AuthService.model.Role;
 import rs.ac.uns.acs.smpuos.AuthService.model.User;
 import rs.ac.uns.acs.smpuos.AuthService.service.IUserService;
-import rs.ac.uns.acs.smpuos.AuthService.service.UserService;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 @RestController
@@ -23,18 +19,24 @@ public class AuthController {
 
     @Autowired
     private IUserService userService;
+    private List<String> blockedEmails = new ArrayList<>();
+
 
 
     User newUser = new User();
 
+
     @PostMapping("/signup")
-    public ResponseEntity<User> addUser(@RequestBody User userRequest) throws Exception {
+    public ResponseEntity<?> addUser(@RequestBody User userRequest) throws Exception {
 
         User existUser = this.userService.findByUsername(userRequest.getUsername());
         if (existUser != null) {
             throw new Exception("User already exists");
         }
 
+        if (blockedEmails.contains(userRequest.getEmail())) {
+            return new ResponseEntity<>("User is blocked", HttpStatus.FORBIDDEN);
+        }
         User user = this.userService.save(userRequest);
 
         return new ResponseEntity<>(user, HttpStatus.CREATED);
@@ -48,9 +50,11 @@ public class AuthController {
         if (user == null || !user.getPassword().equals(loginRequest.getPassword())) {
             throw new Exception("Invalid username or password");
         }
+
         session.setAttribute("user", user);
         newUser = (User) session.getAttribute("user");
         System.out.println("Ovo je imeeee" + newUser.getUsername());
+
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
@@ -82,7 +86,8 @@ public class AuthController {
             return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         }
         userService.delete(user);
-        return new ResponseEntity<>("Recipe deleted successfully", HttpStatus.OK);
+        blockedEmails.add(user.getEmail());
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
 
@@ -97,10 +102,6 @@ public class AuthController {
         }
         return new ResponseEntity<List<User>>(regusers,HttpStatus.OK);
     }
-
-
-
-
 
 
 }

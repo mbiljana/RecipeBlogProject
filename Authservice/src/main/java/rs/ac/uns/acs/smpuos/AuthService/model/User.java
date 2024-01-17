@@ -36,6 +36,8 @@ public class User {
     @Field(value = "picture")
     private String picture;
 
+
+
     public User() {
     }
 

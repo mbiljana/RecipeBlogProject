@@ -42,8 +42,14 @@ export class SignUpComponent {
         this.showLoginForm();
       },
       (error) => {
-        console.error('Sign-up error:', error);
-      }
+        if (error.status === 403) {
+            // User is blocked
+            this.showBlockedMessage();
+        } else {
+            // Handle other login errors
+            console.error('Login error:', error);
+        }
+    }
     );
       this.saveCredentials.username = this.signUpCredentials.username;
       this.saveCredentials.password = this.signUpCredentials.password;
@@ -57,10 +63,22 @@ export class SignUpComponent {
         this.router.navigate(['/recipes']);
       },
       (error) => {
-        console.error('Login error:', error);
-      }
+        if (error.status === 403) {
+            // User is blocked
+            this.showBlockedMessage();
+        } else {
+            // Handle other login errors
+            console.error('Login error:', error);
+        }
+    }
     );
   }
+
+
+  showBlockedMessage() {
+    // Implement logic to display a blocked user message on the front end
+    alert('Sorry, you are blocked. Please contact support for assistance.');
+}
 
   
 

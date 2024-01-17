@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Role } from '../model/user';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit {
 
   userRole: Role;
 
-  constructor(private authService: UserService,public recipeService: RecipeService) {
+  constructor(private authService: UserService,public recipeService: RecipeService,private router: Router) {
     this.authService.getUserRole().subscribe(
       (role: Role) => {
         this.userRole = role;
@@ -29,7 +30,7 @@ export class NavbarComponent implements OnInit {
   signout() {
     this.authService.SignOut().subscribe(
       (user) => {
-        this.reloadPage();
+        this.router.navigate(['']);
       },
       (error) => {
         console.error('Signout error:', error);

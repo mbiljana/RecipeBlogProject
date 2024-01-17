@@ -29,7 +29,6 @@ export class BlockUsersComponent implements OnInit {
   }
 
   blockUser(userId: string) {
-    // Assuming you have a method in your UserService to delete users
     this.userService.deleteUser(userId).subscribe(
       () => {
         console.log('User blocked successfully');
