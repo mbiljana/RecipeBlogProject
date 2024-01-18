@@ -1,0 +1,21 @@
+<div class="user-list">
+  <h2>List of Reviews</h2>
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Description</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let review of reviews" class="user-item">
+        <td>{{ review.username }}</td>
+        <td>{{ review.description }}</td>
+        <td>{{ review.review }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br><br><br>
+</div>

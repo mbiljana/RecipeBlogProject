@@ -37,7 +37,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-        <a class="nav-link" href="recipes">Recipes</a>
+        <a class="nav-link" (click)="recipes()">Recipes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="add-recipe">Add new recipe</a>
@@ -45,12 +45,15 @@
       <li class="nav-item">
         <a class="nav-link" href="search">Search recipes</a>
       </li>
-      
+
       <li class="nav-item">
-        <a class="nav-link" href="">Homepage</a>
+        <a class="nav-link" (click)="homepage()">Homepage</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="" (click) = "signout()">&#10148; Sign Out </a>
+        <a class="nav-link" (click)="profile()">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="" (click)="signout()">&#10148; Sign Out </a>
       </li>
     </ul>
   </div>
@@ -83,23 +86,32 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="recipes">Recipes</a>
+            <a class="nav-link" (click)="recipes()">Recipes</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="approve">Approve recipe</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="approve">View favorites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="reviews">Reviews</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="search">Search recipes</a>
           </li>
-          
+
           <li class="nav-item">
-            <a class="nav-link" href="">Homepage</a>
+            <a class="nav-link" (click)="homepage()">Homepage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="profile()">Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="block-users">Block users</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="" (click) = "signout()">&#10148; Sign Out </a>
+            <a class="nav-link" href="" (click)="signout()">&#10148; Sign Out </a>
           </li>
         </ul>
       </div>

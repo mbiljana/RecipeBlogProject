@@ -1,0 +1,60 @@
+.user-profile-container {
+  max-width: 600px;
+  margin: auto;
+  background-color: #ffffff; /* White background color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+h2 {
+  text-align: center;
+  color: #333333; /* Dark text color */
+}
+
+.user-details {
+  border: 1px solid #e0e0e0; /* Light border color */
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f7f7f7; /* Light background color */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+  .user-details div {
+    margin-bottom: 15px;
+  }
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #d0d0d0; /* Light border color */
+  border-radius: 5px;
+}
+
+.user-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+  button:hover {
+    background-color: #45a049;
+  }

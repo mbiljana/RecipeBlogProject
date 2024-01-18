@@ -3,39 +3,157 @@
   <component name="ChangeListManager">
     <list default="true" id="dca484d3-106d-47b7-8f49-d238d707149e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RecipeService/src/main/java/rs/ac/uns/acs/smpuos/RecipeService/controller/RecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RecipeService/src/main/java/rs/ac/uns/acs/smpuos/RecipeService/controller/RecipeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RecipeService/src/main/java/rs/ac/uns/acs/smpuos/RecipeService/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RecipeService/src/main/java/rs/ac/uns/acs/smpuos/RecipeService/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RecipeService/src/main/java/rs/ac/uns/acs/smpuos/RecipeService/service/IRecipeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RecipeService/src/main/java/rs/ac/uns/acs/smpuos/RecipeService/service/IRecipeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RecipeService/src/main/java/rs/ac/uns/acs/smpuos/RecipeService/service/RecipeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RecipeService/src/main/java/rs/ac/uns/acs/smpuos/RecipeService/service/RecipeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReviewService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ReviewService/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/InitialData.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/InitialData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/rs/ac/uns/acs/smpuos/UserService/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-front/src/app/all-recipes/all-recipes.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-front/src/app/all-recipes/all-recipes.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-front/src/app/all-recipes/all-recipes.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-front/src/app/all-recipes/all-recipes.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-front/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-front/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-front/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-front/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-front/src/app/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-front/src/app/recipe.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-front/src/app/recipe.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-front/src/app/view-recipe/view-recipe.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-front/src/app/view-recipe/view-recipe.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-front/src/app/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-front/src/app/navbar/navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-front/src/app/sign-up/sign-up.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-front/src/app/sign-up/sign-up.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-front/src/app/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-front/src/app/user.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 8
-}</component>
   <component name="ProjectId" id="2ZAqQqDA0GdX3OeXChSBFcmF8Me" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/RecipeService" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager" selected="Maven.userService">
+    <configuration name="authService" type="MavenRunConfiguration" factoryName="Maven" singleton="false">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/Authservice" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="recipeService" type="MavenRunConfiguration" factoryName="Maven" singleton="false">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/RecipeService" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="reviewService" type="MavenRunConfiguration" factoryName="Maven" singleton="false">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/ReviewService" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="userService" type="MavenRunConfiguration" factoryName="Maven" singleton="false">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/UserService" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Maven.recipeService" />
+      <item itemvalue="Maven.reviewService" />
+      <item itemvalue="Maven.userService" />
+      <item itemvalue="Maven.authService" />
+    </list>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -44,7 +162,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701875223549</updated>
+      <workItem from="1705515726675" duration="20139000" />
+      <workItem from="1705581382217" duration="3571000" />
+      <workItem from="1705592632249" duration="5854000" />
+      <workItem from="1705613990982" duration="3036000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

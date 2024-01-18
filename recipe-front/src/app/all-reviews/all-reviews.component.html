@@ -1,0 +1,30 @@
+<div class="user-list">
+  <h2>List of Reviews</h2>
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Description</th>
+        <th>Review</th>
+        <th>For recipe</th>
+        <th>Category</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let review of reviews" class="user-item">
+        <td>{{ review.username }}</td>
+        <td>{{ review.description }}</td>
+        <td>{{ review.review }}</td>
+        <td>{{ review.recipeName }}</td>
+        <td>{{ review.recipeCategory }}</td>
+        <td class="action-buttons">
+          <button (click)="approveReview(review.id)" class="accept-button">Approve</button>
+          <button (click)="rejectReview(review.id)" class="reject-button">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br><br><br>
+</div>

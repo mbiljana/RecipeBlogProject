@@ -13,4 +13,11 @@ public interface IUserService {
     User block(String id);
 
     List<String> addFavoriteRecipe(String userId, String recipeId);
+
+    void save(User user);
+
+    User findByUsername(String username);
+
+    User findByAuthId(String authId);
+    List<String> getFavoriteRecipes(String userId);
 }

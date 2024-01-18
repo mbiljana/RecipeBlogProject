@@ -1,0 +1,17 @@
+<div class="user-profile-container">
+  <h2>Add review</h2>
+
+  <div class="user-details">
+    <div>
+      <label for="firstname">Description:</label>
+      <input type="text" [(ngModel)]="newReview.description" id="description" name="description">
+    </div>
+    <div>
+      <label for="lastname">Review:</label>
+      <input type="text" [(ngModel)]="newReview.review" id="review" name="review">
+    </div>
+
+  <div class="user-actions">
+    <button (click)="saveChanges()">Save Changes</button>
+  </div>
+</div>

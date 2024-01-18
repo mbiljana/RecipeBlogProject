@@ -1,5 +1,5 @@
 server:
-  port: 8087
+  port: 8088
 
 spring:
   application:
@@ -8,7 +8,7 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: RecipeDB
+      database: ProfileDB
     
 eureka:
   client:
