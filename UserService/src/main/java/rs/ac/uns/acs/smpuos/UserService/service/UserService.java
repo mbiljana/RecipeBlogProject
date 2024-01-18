@@ -7,6 +7,7 @@ import rs.ac.uns.acs.smpuos.UserService.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Collections;
 
 @Service
 public class UserService implements IUserService {
@@ -25,13 +26,30 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public User findByAuthId(String authId) {
+        return userRepository.findByAuthId(authId);
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+
+    @Override
+    public void save(User user) {
+        this.userRepository.save(user);
+    }
+
+
+    @Override
     public User update(User editedUser) {
-        User user = this.findById(editedUser.getId());
+        User user = this.findByAuthId(editedUser.getAuthId());
         user.setFirstname(editedUser.getFirstname());
         user.setEmail(editedUser.getEmail());
         user.setLastname(editedUser.getLastname());
         user.setUsername(editedUser.getUsername());
-        user.setBirth_date(editedUser.getBirth_date());
+        user.setPhone(editedUser.getPhone());
         if (user == null) {
             throw new IllegalStateException("User does not exist!");
         } else {
@@ -68,6 +86,13 @@ public class UserService implements IUserService {
             // Handle the case where the user is not found
             return null;
         }
+    }
+
+    @Override
+    public List<String> getFavoriteRecipes(String userId) {
+        Optional<User> userOptional = userRepository.findById(userId);
+
+        return userOptional.map(User::getFavorites).orElse(Collections.emptyList());
     }
 }
 

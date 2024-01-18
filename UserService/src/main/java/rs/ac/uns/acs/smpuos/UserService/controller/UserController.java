@@ -19,9 +19,25 @@ public class UserController {
     @Autowired
     IUserService userService;
 
+
+    @PostMapping(value = "/profile/save",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> saveUser(@RequestBody User user) throws Exception {
+        User u = new User();
+        u.setFirstname(user.getFirstname());
+        u.setEmail(user.getEmail());
+        u.setAuthId(user.getAuthId());
+        u.setLastname(user.getLastname());
+        u.setUsername(user.getUsername());
+        u.setPhone(user.getPhone());
+        this.userService.save(u);
+        return new ResponseEntity<User>(u,HttpStatus.OK);
+    }
+
     @RequestMapping(value="/profile/{id}",method = RequestMethod.GET)
     public ResponseEntity<User> findOne(@PathVariable String id){
-        User user=this.userService.findById(id);
+        User user=this.userService.findByAuthId(id);
         if (user==null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -29,7 +45,7 @@ public class UserController {
     }
 
     //User updates profile info
-    @PutMapping(value = "/profile/update",
+    @PostMapping(value = "/profile/update",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateProfile(@RequestBody User user) throws Exception {
@@ -49,5 +65,10 @@ public class UserController {
     public List<String> addFavoriteRecipe(
             @PathVariable String userId, @RequestParam String recipeId) {
         return userService.addFavoriteRecipe(userId, recipeId);
+    }
+
+    @GetMapping("/{userId}/favorites")
+    public List<String> getFavoriteRecipes(@PathVariable String userId) {
+        return userService.getFavoriteRecipes(userId);
     }
 }

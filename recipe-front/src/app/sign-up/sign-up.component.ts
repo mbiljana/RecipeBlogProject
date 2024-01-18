@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Role, User } from '../model/user';
+import { UserProfile } from '../model/userProfile';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { waitForAsync } from '@angular/core/testing';
@@ -36,31 +37,51 @@ export class SignUpComponent {
   constructor(private userService: UserService, private router: Router) {}
 
 
-  signUp() {
-    this.userService.signUp(this.signUpCredentials).subscribe(
-      (user) => {
-        this.showLoginForm();
-      },
-      (error) => {
-        if (error.status === 403) {
-            // User is blocked
-            this.showBlockedMessage();
-        } else {
-            // Handle other login errors
-            console.error('Login error:', error);
-        }
+  async signUp() {
+    try {
+      // Assuming this.userService.signUp returns an Observable<User>
+      this.userService.signUp(this.signUpCredentials)
+        .subscribe(async (user) => {
+          // Save the user profile after successful signup
+          const userProfile: UserProfile = {
+            authId : user.id,
+            username: user.username,
+            role: user.role,
+            firstname: user.name,
+            lastname: user.surname,
+            email: user.email,
+            phone: user.phone,
+            blocked: false,
+            favorites: [],
+          };
+
+          // Assuming this.userService.saveProfile returns a Promise<any>
+          await this.userService.saveProfile(userProfile).toPromise();
+          console.log(userProfile);
+
+          // Successfully signed up and saved profile
+          this.showLoginForm();
+        },
+          (error) => {
+            if (error.status === 403) {
+              // User is blocked
+              this.showBlockedMessage();
+            } else {
+              // Handle other login errors
+              console.error('Login error:', error);
+            }
+          });
+    } catch (error) {
+      // Handle other errors if needed
+      console.error('Error during signup:', error);
     }
-    );
-      this.saveCredentials.username = this.signUpCredentials.username;
-      this.saveCredentials.password = this.signUpCredentials.password;
-    this.userService.save(this.saveCredentials).subscribe(
-    );
   }
 
   login() {
     this.userService.login(this.loginCredentials).subscribe(
       (user) => {
-        this.router.navigate(['/recipes']);
+        const userIdFromResponse = user.id;
+        this.router.navigate(['/recipes', userIdFromResponse]);
       },
       (error) => {
         if (error.status === 403) {

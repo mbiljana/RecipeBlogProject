@@ -23,7 +23,7 @@ public class InitialData {
         List<String> favorites = new ArrayList<>();
         favorites.add("1");
 
-        User u1 = new User("1", "Ana123", "Ana", "Perić" , Role.REGUSER,"anaperic@gmail.com", "30-11-1998", false, favorites);
+        User u1 = new User("1","123", "Ana123", "Ana", "Perić" , Role.REGUSER,"anaperic@gmail.com", "061 2456987" ,false, favorites);
         userRepository.save(u1);
     }
 }

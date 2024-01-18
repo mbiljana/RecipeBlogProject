@@ -17,6 +17,11 @@ import { SearchRecipesComponent } from './search-recipes/search-recipes.componen
 import { SearchRecipesViewComponent } from './search-recipes-view/search-recipes-view.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { BlockUsersComponent } from './block-users/block-users.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AddReviewComponent } from './add-review/add-review.component';
+import { AllReviewsComponent } from './all-reviews/all-reviews.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { BlockUsersComponent } from './block-users/block-users.component';
     SearchRecipesComponent,
     SearchRecipesViewComponent,
     SignUpComponent,
-    BlockUsersComponent
+    BlockUsersComponent,
+    UserProfileComponent,
+    AddReviewComponent,
+    AllReviewsComponent,
+    ReviewsComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

@@ -8,16 +8,27 @@ import { ApproveRecipeComponent } from './approve-recipe/approve-recipe.componen
 import { SearchRecipesComponent } from './search-recipes/search-recipes.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { BlockUsersComponent } from './block-users/block-users.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AddReviewComponent } from './add-review/add-review.component';
+import { AllReviewsComponent } from './all-reviews/all-reviews.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent},
-  { path: 'recipes', component: AllRecipesComponent},
+  { path: 'recipes/:id', component: AllRecipesComponent },
+  { path: 'recipes/:id/favorites', component: FavoritesComponent },
+  { path: 'recipes/:id/add-review/:recipeId', component: AddReviewComponent },
+  { path: 'recipes/:id/review/:recipeId', component: ReviewsComponent },
+  { path: 'reviews', component: AllReviewsComponent },
   { path: 'add-recipe', component: AddRecipeComponent},
   { path: 'recipe/:id', component: ViewRecipeComponent},
   { path: 'approve', component: ApproveRecipeComponent},
   { path: 'search', component: SearchRecipesComponent},
   { path: 'login-signup', component: SignUpComponent},
-  { path: 'block-users', component: BlockUsersComponent}
+  { path: 'block-users', component: BlockUsersComponent },
+  { path: 'recipes/:id/profile', component: UserProfileComponent }
 ];
 
 @NgModule({
