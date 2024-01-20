@@ -1,0 +1,94 @@
+<style>
+  .recipes-container {
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: space-between; */
+  }
+
+  h1 {
+      text-align: center;
+      margin-bottom: 70px;
+  }
+
+  .recipe {
+    position: relative;
+    width: calc(600px);
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+
+  .recipe:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #555;
+    margin-bottom: 8px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  .button-container {
+  margin-top: 50px; /* Adjust the margin value as needed */
+  }
+  .btn-primary {
+    margin-top: 20px;
+  background-color: #125b1e;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+.add-to-favorites {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dd5aa5; /* Adjust color as needed */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+
+<div class="search-container">
+  <input [(ngModel)]="name" class="search-input" placeholder="Enter recipe name" />
+  <button (click)="searchRecipe()" class="search-button">Search</button>
+</div>
+<div class="search-container">
+  <select [(ngModel)]="selectedCategory" class="category-select">
+    <option value="">All Categories</option>
+    <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+  </select>
+  <button (click)="searchRecipeCategory()" class="search-button">Search</button>
+</div>
+  
+  <div class="recipes-container">
+    <div *ngFor="let recipe of recipes" class="recipe">
+      <button class="add-to-favorites">&#10084; </button>
+        <h3>{{ recipe.name }}</h3>
+        <p>Prep Time: {{ recipe.prep_time }}</p>
+        <p>Category:  {{ recipe.categories }}</p>
+        <img src="{{ recipe.picture }}" width="200" height="200">
+  
+  
+        <a [routerLink]="['/recipe', recipe.id]" class="btn btn-primary">See more</a>
+    </div>
+  </div>
+  
+  

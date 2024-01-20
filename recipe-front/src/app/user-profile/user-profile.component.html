@@ -1,0 +1,30 @@
+<div class="user-profile-container">
+  <h2>User Profile</h2>
+
+  <div class="user-details">
+    <div>
+      <label for="username">Username:</label>
+      <span>{{ user.username }}</span>
+    </div>
+    <div>
+      <label for="firstname">First Name:</label>
+      <input type="text" [(ngModel)]="user.firstname" id="firstname" name="firstname">
+    </div>
+    <div>
+      <label for="lastname">Last Name:</label>
+      <input type="text" [(ngModel)]="user.lastname" id="lastname" name="lastname">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" [(ngModel)]="user.email" id="email" name="email">
+    </div>
+    <div>
+      <label for="phone">Phone:</label>
+      <input type="text" [(ngModel)]="user.phone" id="phone" name="phone">
+    </div>
+  </div>
+
+  <div class="user-actions">
+    <button (click)="saveChanges()">Save Changes</button>
+  </div>
+</div>

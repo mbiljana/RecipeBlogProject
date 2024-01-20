@@ -1,0 +1,42 @@
+<h2>Login or Sign Up</h2>
+
+<div>
+  <button (click)="showLoginForm()">Login</button>
+  <button (click)="showSignUpForm()">Sign Up</button>
+</div>
+
+<div>
+  <form *ngIf="showLogin" (ngSubmit)="login()">
+    <label for="login-username">Username:</label>
+    <input type="text" id="login-username" [(ngModel)]="loginCredentials.username" name="login-username">
+
+    <label for="login-password">Password:</label>
+    <input type="password" id="login-password" [(ngModel)]="loginCredentials.password" name="login-password">
+
+    <button type="submit" >Login</button>
+  </form>
+
+  <form *ngIf="showSignUp" (ngSubmit)="signUp()">
+
+    <label for="login-username">Username:</label>
+    <input type="text" id="login-username" [(ngModel)]="signUpCredentials.username"  name="login-username">
+
+    <label for="login-password">Password:</label>
+    <input type="password" id="login-password" [(ngModel)]="signUpCredentials.password"  name="login-password">
+
+    <label for="login-name">Name:</label>
+    <input type="name" id="login-name" [(ngModel)]="signUpCredentials.name" name="login-name">
+
+    <label for="login-surname">Surname:</label>
+    <input type="surname" id="login-surname" [(ngModel)]="signUpCredentials.surname" name="login-surname" >
+
+    <label for="login-email">Email:</label>
+    <input type="email" id="login-email" [(ngModel)]="signUpCredentials.email" name="login-email">
+
+    <label for="login-phone">Phone:</label>
+    <input type="phone" id="login-phone" [(ngModel)]="signUpCredentials.phone" name="login-phone" >
+
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
+

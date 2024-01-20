@@ -1,0 +1,83 @@
+<style>
+    .approve-recipe-container {
+      margin-left: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      /*justify-content: space-between; */
+    }
+  
+    h2 {
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .recipe {
+      width: calc(600px);
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s;
+    }
+  
+    .recipe:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    h3 {
+      color: #333;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+  
+    p {
+      color: #555;
+      margin-bottom: 8px;
+    }
+  
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .button-container {
+    margin-top: 50px; /* Adjust the margin value as needed */
+    }
+    .btn-primary {
+      margin-top: 20px;
+    background-color: #125b1e;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .btn-danger{
+    margin-left: 10px;
+    margin-top: 20px;
+    background-color: #a30a0a;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+  }
+  </style>
+  
+<h2>Inactive recipes to approve</h2>  
+<div class="approve-recipe-container">
+    <div *ngFor="let recipe of inactiveRecipes" class="recipe">
+      <h3>{{ recipe.name }}</h3>
+      <p>{{ recipe.description }}</p>
+      <p>Ingredients: {{ recipe.ingredients }}</p>
+      <p>Prep Time: {{ recipe.prep_time }}</p>
+      <p> Category: {{ recipe.categories }}</p>
+      <img src="{{ recipe.picture }}" width="200" height="200">
+      <!-- Add a check for null or undefined before calling approveRecipe -->
+      <button (click)="recipe.id !== undefined ? approveRecipe(recipe.id) : null" class="btn btn-primary">Approve</button>
+      <button (click)="recipe.id !== undefined ? onDeleteRecipe(recipe.id) : null" class="btn btn-danger">Remove</button>
+    </div>
+  </div>
+  
+  
