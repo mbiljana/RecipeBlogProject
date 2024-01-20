@@ -12,3 +12,5 @@
  <br /> GatewayServis
  <br /> RecipeService
  <br /> AuthService
+ <br /> UserService
+ <br /> ReviewService
